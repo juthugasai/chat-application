@@ -8,6 +8,7 @@ const DEFAULT_USERS_ROOMS_TO_LOAD = 30;
 const DEFAULT_USER_LIMIT = 20;
 const DEFAULT_HTTP_PORT = 80;
 const REATTEMPT_INIT_PERIOD = 1000;
+initTiptip();
 
 export function getUserStatus(userSettings, user) {
   return fetch(`${chatConstants.CHAT_SERVER_API}getStatus?user=${userSettings.username}&targetUser=${user}`, {
@@ -44,7 +45,6 @@ export function initChatSettings(username, isMiniChat, userSettingsLoadedCallbac
   if (!eXo) { eXo = {}; }
   if (!eXo.chat) { eXo.chat = {}; }
   if (!eXo.chat.userSettings) { eXo.chat.userSettings = {}; }
-  initTiptip();
 
   document.addEventListener(chatConstants.EVENT_USER_SETTINGS_LOADED, (e) => {
     const settings = e.detail;
